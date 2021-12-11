@@ -5,14 +5,9 @@ from setup_pythia import PythiaModel
 import warnings
 warnings.filterwarnings("ignore")
 
-def run(X_val, y_val):
-  scores, predictions = model.predict(image_text, question_text)
-  scores = [score * 100 for score in scores]
-  df = pd.DataFrame({
-      "prediction": predictions,
-      "confidence": scores
-  })
-  print(df)
+def run(image_text, question_text):
+  scores = model.predict_scores(image_text, question_text)
+  print(scores)
 
 model = PythiaModel()
 run("http://images.cocodataset.org/train2017/000000505539.jpg", "where is this place?")

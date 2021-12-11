@@ -155,6 +155,33 @@ class PythiaModel():
 
     return probs, answers
 
+  def predict_scores(self, url, question):
+    with torch.no_grad():
+      detectron_features = self.get_detectron_features(url)
+      resnet_features = self.get_resnet_features(url)
+
+      sample = Sample()
+
+      processed_text = self.text_processor({"text": question})
+      sample.text = processed_text["text"]
+      sample.text_len = len(processed_text["tokens"])
+
+      sample.image_feature_0 = detectron_features
+      sample.image_info_0 = Sample({
+          "max_features": torch.tensor(100, dtype=torch.long)
+      })
+
+      sample.image_feature_1 = resnet_features
+
+      sample_list = SampleList([sample])
+      sample_list = sample_list.to(DEVICE)
+
+      scores = self.pythia_model(sample_list)["scores"]
+
+    gc.collect()
+    # torch.cuda.empty_cache()
+
+    return scores
 
   def _build_detection_model(self):
 
