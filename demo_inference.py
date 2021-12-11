@@ -1,7 +1,9 @@
 import pandas as pd
 from setup_pythia import PythiaModel
 
-model = PythiaModel()
+# ignoring warnings
+import warnings
+warnings.filterwarnings("ignore")
 
 def run(image_text, question_text):
   scores, predictions = model.predict(image_text, question_text)
@@ -12,8 +14,5 @@ def run(image_text, question_text):
   })
   print(df)
 
-# ignoring warnings
-import warnings
-warnings.filterwarnings("ignore")
-
+model = PythiaModel()
 run("http://images.cocodataset.org/train2017/000000505539.jpg", "where is this place?")

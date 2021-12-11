@@ -33,12 +33,12 @@ from mmf.utils.env import setup_imports
 from mmf.utils.configuration import Configuration
 
 setup_imports()
+DEVICE = "cpu"
 
 class PythiaModel():
   TARGET_IMAGE_SIZE = [448, 448]
   CHANNEL_MEAN = [0.485, 0.456, 0.406]
   CHANNEL_STD = [0.229, 0.224, 0.225]
-  DEVICE = "cpu"
 
   def __init__(self):
     self._init_processors()

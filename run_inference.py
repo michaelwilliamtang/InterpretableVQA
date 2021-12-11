@@ -6,7 +6,6 @@ import warnings
 warnings.filterwarnings("ignore")
 
 def run(X_val, y_val):
-  
   scores, predictions = model.predict(image_text, question_text)
   scores = [score * 100 for score in scores]
   df = pd.DataFrame({
