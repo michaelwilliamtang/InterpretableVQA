@@ -33,7 +33,7 @@ from mmf.utils.env import setup_imports
 from mmf.utils.configuration import Configuration
 
 setup_imports()
-DEVICE = "cpu"
+DEVICE = 'cpu'
 
 class PythiaModel():
   TARGET_IMAGE_SIZE = [448, 448]
