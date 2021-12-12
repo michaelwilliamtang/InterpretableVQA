@@ -292,3 +292,12 @@ class PythiaModel():
       feat_list = self._process_feature_extraction(output, im_scales,
                                                   'fc6', 0.2)
       return feat_list[0]
+
+  def get_resnet_model(self):
+      return models.resnet152(pretrained=True).eval()
+
+  def get_detectron_model(self):
+      return self._build_detection_model()
+
+  def get_pythia_model(self):
+      return self._build_pythia_model()

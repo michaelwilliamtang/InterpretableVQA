@@ -1,4 +1,3 @@
-import pandas as pd
 from setup_pythia import PythiaModel
 
 # ignoring warnings
