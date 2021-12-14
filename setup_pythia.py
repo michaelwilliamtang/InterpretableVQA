@@ -35,7 +35,7 @@ from mmf.utils.configuration import Configuration
 setup_imports()
 DEVICE = 'cpu'
 
-class PythiaModel():
+class PythiaModel(torch.nn.Module):
   TARGET_IMAGE_SIZE = [448, 448]
   CHANNEL_MEAN = [0.485, 0.456, 0.406]
   CHANNEL_STD = [0.229, 0.224, 0.225]
@@ -301,3 +301,6 @@ class PythiaModel():
 
   def get_pythia_model(self):
       return self._build_pythia_model()
+
+  def forward(images):
+      return predict_scores(url, question)

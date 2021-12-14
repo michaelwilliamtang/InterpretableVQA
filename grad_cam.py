@@ -48,6 +48,6 @@ def grad_cam(model, image_path, question_text):
         cam_extractor.clear_hooks()
 
 
-# model = PythiaModel().get_pythia_model()
-model = PythiaModel().get_resnet_model()
+model = PythiaModel().get_pythia_model()
+# model = PythiaModel().get_resnet_model()
 grad_cam(model, "border-collie.jpg", "where is this place?")

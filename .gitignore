@@ -1,6 +1,7 @@
 .ipynb_checkpoints/
 __pycache__/
 model_data/
+model_metadata/
 mmf/
 vqa-maskrcnn-benchmark/
 detectron/
